@@ -11,3 +11,9 @@ A simple application for managing daily tasks with basic CRUD (Create, Read, Upd
 
 ## Team Members
 - M. Omer Ugur 35655
+## Features
+- Add tasks
+- View task list
+- Edit task details
+- Delete tasks
+- Mark tasks as completed

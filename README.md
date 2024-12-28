@@ -17,3 +17,14 @@ A simple application for managing daily tasks with basic CRUD (Create, Read, Upd
 - Edit task details
 - Delete tasks
 - Mark tasks as completed
+
+## Endpoints
+- `POST /api/tasks`: Create a new task.
+- `GET /api/tasks`: Retrieve all tasks.
+- `PUT /api/tasks/:id`: Update an existing task.
+- `DELETE /api/tasks/:id`: Delete a task.
+
+## Installation
+1. Clone the repository.
+2. Run `npm install` to install dependencies.
+3. Start the server with `node server.js`.

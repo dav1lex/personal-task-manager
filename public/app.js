@@ -1,6 +1,6 @@
 const apiUrl = 'http://localhost:3000/api/tasks';
 
-// Fetch tasks and display them
+// Fetch tasks and display
 function fetchTasks() {
     fetch(apiUrl)
         .then((response) => response.json())
@@ -26,7 +26,7 @@ function fetchTasks() {
 }
 
 
-// Add or update a task
+// Add or update task
 document.getElementById('task-form').addEventListener('submit', (e) => {
     e.preventDefault();
     const id = document.getElementById('task-id').value;
@@ -48,14 +48,37 @@ document.getElementById('task-form').addEventListener('submit', (e) => {
     });
 });
 
-// Delete a task
-function deleteTask(id) {
-    fetch(`${apiUrl}/${id}`, { method: 'DELETE' }).then(() => {
-        fetchTasks();
-    });
+function deleteTask(taskId) {
+    if (!taskId) {
+        alert("Task ID is missing. Cannot delete the task.");
+        return;
+    }
+
+    if (confirm("Are you sure you want to delete this task? This action cannot be undone.")) {
+        fetch(`http://localhost:3000/api/tasks/${taskId}`, {
+            method: 'DELETE',
+        })
+            .then((response) => {
+                if (response.ok) {
+                    alert("Task deleted successfully.");
+                    fetchTasks(); // Refreshthe list
+                } else {
+                    return response.json().then((data) => {
+                        console.error("Server Response:", data);
+                        alert(`Failed to delete task: ${data.error || "Unknown error"}`);
+                    });
+                }
+            })
+            .catch((error) => {
+                console.error("Network Error:", error);
+                alert("ERROR.");
+            });
+    } else {
+        alert("Task deletion canceled.");
+    }
 }
 
-// Start editing a task
+// Start editing task
 function startEditTask(id) {
     fetch(`${apiUrl}/${id}`)
         .then((response) => response.json())
@@ -73,7 +96,7 @@ function startEditTask(id) {
         });
 }
 
-// Reset the form to default "Add Task" mode
+// Reset the form to default
 function resetForm() {
     document.getElementById('task-id').value = '';
     document.getElementById('name').value = '';
@@ -87,5 +110,5 @@ function resetForm() {
     document.getElementById('status').style.display = 'none';
 }
 
-// Fetch tasks on page load
+// Fetch tasks on load
 fetchTasks();

@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:3000/api/tasks';
+const apiUrl = 'https://personal-task-manager-xhtv.onrender.com';
 
 // Fetch tasks and display
 function fetchTasks() {

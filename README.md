@@ -29,4 +29,4 @@ A simple application for managing daily tasks with basic CRUD (Create, Read, Upd
 2. Run `npm install` to install dependencies.
 3. Start the server with `node server.js`.
 4. Start the http server using `npx http-start`
-5. Or using live link: `https://task-manager-roendsb5q-dav1lexs-projects.vercel.app/`
+5. Or,use live link: [Clicking here](https://task-manager-roendsb5q-dav1lexs-projects.vercel.app/)

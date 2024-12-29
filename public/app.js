@@ -1,4 +1,4 @@
-const apiUrl = 'https://personal-task-manager-xhtv.onrender.com';
+const apiUrl = 'https://personal-task-manager-xhtv.onrender.com/api/tasks';
 
 // Fetch tasks and display
 function fetchTasks() {

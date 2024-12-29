@@ -1,13 +1,18 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const db = require('./database'); // Import database
 
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
 
+// Serve static files from the frontend
+// app.use(express.static(path.join(__dirname, 'frontend')));
+
+// API Endpoints
 // GET all tasks
 app.get('/api/tasks', (req, res) => {
     db.all('SELECT * FROM tasks', [], (err, rows) => {
@@ -81,6 +86,8 @@ app.delete('/api/tasks/:id', (req, res) => {
 });
 
 // Start the server
-app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
+
+module.exports = app;

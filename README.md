@@ -28,3 +28,4 @@ A simple application for managing daily tasks with basic CRUD (Create, Read, Upd
 1. Clone the repository.
 2. Run `npm install` to install dependencies.
 3. Start the server with `node server.js`.
+4. Start the http server using `npx http-start`

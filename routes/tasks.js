@@ -3,7 +3,7 @@ const db = require('../database');
 
 const router = express.Router();
 
-// Create a new task
+// Creat new task
 router.post('/tasks', (req, res) => {
     const { name, description, due_date } = req.body;
     db.run(
@@ -18,7 +18,7 @@ router.post('/tasks', (req, res) => {
     );
 });
 
-// Get all tasks
+// Get tasks
 router.get('/tasks', (req, res) => {
     db.all(`SELECT * FROM tasks`, [], (err, rows) => {
         if (err) {
@@ -29,7 +29,7 @@ router.get('/tasks', (req, res) => {
     });
 });
 
-// Update a task
+// Update
 router.put('/tasks/:id', (req, res) => {
     const { id } = req.params;
     const { name, description, due_date, status } = req.body;
@@ -48,14 +48,16 @@ router.put('/tasks/:id', (req, res) => {
     );
 });
 
-// Delete a task
+// Delete task
 router.delete('/tasks/:id', (req, res) => {
-    const { id } = req.params;
+    const { id } = req.params; // check id is parsed correctly
     db.run(`DELETE FROM tasks WHERE id = ?`, [id], function (err) {
         if (err) {
             res.status(500).json({ error: err.message });
+        } else if (this.changes === 0) {
+            res.status(404).json({ error: 'Task not found' });
         } else {
-            res.status(200).json({ message: 'Task deleted' });
+            res.status(200).json({ message: 'Task deleted successfully' });
         }
     });
 });

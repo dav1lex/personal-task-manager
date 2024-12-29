@@ -55,13 +55,13 @@ function deleteTask(taskId) {
     }
 
     if (confirm("Are you sure you want to delete this task? This action cannot be undone.")) {
-        fetch(`http://localhost:3000/api/tasks/${taskId}`, {
+        fetch(`${apiUrl}/${taskId}`, {
             method: 'DELETE',
         })
             .then((response) => {
                 if (response.ok) {
                     alert("Task deleted successfully.");
-                    fetchTasks(); // Refreshthe list
+                    fetchTasks(); // Refres list
                 } else {
                     return response.json().then((data) => {
                         console.error("Server Response:", data);
@@ -71,7 +71,7 @@ function deleteTask(taskId) {
             })
             .catch((error) => {
                 console.error("Network Error:", error);
-                alert("ERROR.");
+                alert("api connection ERROR.");
             });
     } else {
         alert("Task deletion canceled.");

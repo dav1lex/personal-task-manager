@@ -73,6 +73,19 @@ header {
     background: #e53935;
 }
 
+.task.completed {
+    background: #f3f3f3;
+    color: #888; /* Dimmed text */
+    text-decoration: line-through;
+    border: 1px solid #ccc;
+}
+
+.task.completed button {
+    opacity: 0.6; /* Dull button  */
+    cursor: not-allowed; /* buttons are disabled */
+    pointer-events: none;
+}
+
 .form-container {
     background: white;
     border: 1px solid #ddd;

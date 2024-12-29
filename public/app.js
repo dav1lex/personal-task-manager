@@ -11,20 +11,22 @@ function fetchTasks() {
             tasks.forEach((task) => {
                 const taskDiv = document.createElement('div');
                 taskDiv.classList.add('task');
+                if (task.status === 1) { // If task is completed
+                    taskDiv.classList.add('completed');
+                }
                 taskDiv.innerHTML = `
                     <h3>${task.name}</h3>
                     <p>${task.description || 'No description provided'}</p>
                     <p>Due: ${task.due_date || 'No due date set'}</p>
                     <p>Status: ${task.status === 0 ? 'Pending' : 'Completed'}</p>
                     <button onclick="startEditTask(${task.id})">Edit</button>
-                    <button onclick="deleteTask(${task.id})">Delete</button>
+                    <button class="delete" onclick="deleteTask(${task.id})">Delete</button>
                 `;
                 taskList.appendChild(taskDiv);
             });
         })
         .catch((error) => console.error("Error fetching tasks:", error));
 }
-
 
 // Add or update task
 document.getElementById('task-form').addEventListener('submit', (e) => {
@@ -40,8 +42,8 @@ document.getElementById('task-form').addEventListener('submit', (e) => {
 
     fetch(url, {
         method,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, description, due_date, status }),
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({name, description, due_date, status}),
     }).then(() => {
         resetForm();
         fetchTasks();

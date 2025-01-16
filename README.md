@@ -6,6 +6,12 @@ A simple application for managing daily tasks with basic CRUD (Create, Read, Upd
 ### Database Schema
 ![database](https://github.com/user-attachments/assets/c17e9d80-7931-4dc1-a975-838d1002d030)
 
+### Flow diagram
+![flow-diagram](https://github.com/user-attachments/assets/50671857-d5a5-448c-a57f-0566c302d580)
+
+### Stack Diagram
+![stack](https://github.com/user-attachments/assets/cd920e77-ab62-42b2-8e40-1e91081f7c39)
+
 ## Tech Stack
 - Frontend: HTML, CSS, JavaScript
 - Backend: Node.js (Express)

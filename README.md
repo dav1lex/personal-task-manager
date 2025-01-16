@@ -10,7 +10,7 @@ A simple application for managing daily tasks with basic CRUD (Create, Read, Upd
 ![flow-diagram](https://github.com/user-attachments/assets/50671857-d5a5-448c-a57f-0566c302d580)
 
 ### Stack Diagram
-![stack](https://github.com/user-attachments/assets/cd920e77-ab62-42b2-8e40-1e91081f7c39)
+![stack](https://github.com/user-attachments/assets/fbb18b5c-06f5-4d58-874c-429648d00674)
 
 ## Tech Stack
 - Frontend: HTML, CSS, JavaScript

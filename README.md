@@ -3,6 +3,9 @@
 ## Project Description
 A simple application for managing daily tasks with basic CRUD (Create, Read, Update, Delete) operations. This project is developed using Agile methodology and the SCRUM framework.
 
+### Database Schema
+![database](https://github.com/user-attachments/assets/c17e9d80-7931-4dc1-a975-838d1002d030)
+
 ## Tech Stack
 - Frontend: HTML, CSS, JavaScript
 - Backend: Node.js (Express)

@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const path = require('path');
 const db = require('./database'); // Import database
 
 const app = express();
@@ -8,9 +7,6 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
-
-// Serve static files from the frontend
-// app.use(express.static(path.join(__dirname, 'frontend')));
 
 // API Endpoints
 // GET all tasks
